@@ -18,23 +18,11 @@ public class Main {
 
     public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException, XPathExpressionException {
 
-//        File fXmlF = new File("books.xml");
-//
-//        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-//
-//        DocumentBuilder db = dbFactory.newDocumentBuilder();
-//
-//        FileInputStream fis = new FileInputStream("catalog.xml");
-//        Document doc = db.parse(fXmlF);
-//
-//       dbFactory.setIgnoringElementContentWhitespace(true);
         XPathFactory factory = XPathFactory.newInstance();
         XPath xPath = factory.newXPath();
 
         XPathExpression xPathExpression = xPath.compile("//catalog/book[price>10][number(translate(publish_date,'-','')) > 20050000]");
-        // stari upit
-        //"//book[price>10]/price] | //book[publish_date>2005]/publish_date");
-
+        
         File xmlDocument = new File("src/main/catalog.xml");
         InputSource inputSource = new InputSource(new FileInputStream(xmlDocument));
 
